@@ -1,57 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24pt;
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
-label {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12pt;
-}
-
-input {
-  font-family: 'Poppins', sans-serif;
-}
-
-.btn {
-  display: inline-block;
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 10px 70px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-}
-
-.btn:hover {
-  background-color: rgb(34, 34, 34);
-  color: white;
-}
-
-.linkbtn {
-  display: inline-block;
-  background-color: rgb(250, 250, 250);
-  color: black;
-  border: none;
-  cursor: pointer;
-  font-size: 11px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 8pt;
-}
-
-.linkbtn:hover {
-  text-decoration: underline;
-}
-
+/*Navigation Bar*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -60,7 +17,7 @@ input {
 }
 
 .logo-text {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 300;
     color: rgb(255, 89, 103);
 }
@@ -75,7 +32,7 @@ input {
 }
 
 .nav-links a {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 300;
     color: black;
     text-decoration: none;
@@ -86,23 +43,41 @@ input {
     background-color: rgb(242, 242, 242);
     cursor: pointer;
 }
-  
-.signin-window .signin-window-text {
-    visibility: hidden;
-    align-self: center;
-    width: 350px;
-    background-color: rgb(250, 250, 250);;
-    border-color: #000; 
-    border-style: groove; 
-    border-width: 2px;
-    position: absolute;
-    padding: 50px;
-    font-size: 70%;
-    position: absolute;
-    top: 200px;
-    left: 40%;
+
+/*Login*/
+h2 {
+  font-size: 24pt;
 }
-  
-.signin-window .show {
-    visibility: visible;
+
+label {
+  font-size: 12pt;
+}
+
+.btn {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 70px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(34, 34, 34);
+  color: white;
+}
+
+.linkbtn {
+  display: inline-block;
+  background-color: rgb(250, 250, 250);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 8pt;
+}
+
+.linkbtn:hover {
+  text-decoration: underline;
 }
