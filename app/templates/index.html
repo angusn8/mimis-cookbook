@@ -7,22 +7,29 @@
             <h1>Mimi's Cookbook</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <p>Welcome to Mimi's Cookbook, the online marketplace for buying and selling recipes for meals and baked goods. To get started, sign up or log in below.</p>
+    <nav class='container navbar'>
+      
+        <div class='logo-text'>
+            Mimi's Cookbook
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/auth/login">
-                <button>Log In</button>
-            </a>
-        </div>
-        <div class="col-md-6">
-            <a href="/auth/signup">
-                <button>Sign Up</button>
-            </a>
-        </div>
-    </div>
+
+        <menu>
+
+          <ul class='nav-links'>
+
+            <li>
+              <div class="signin-window">
+                <a>Sign in</a>
+                <span class="signin-window-text" id="signin-window"> <Login /></span>              
+              </div>
+            </li>
+
+            <li><a href='#' >Cart</a></li>
+
+          </ul>
+
+        </menu>
+
+    </nav>
 </div>
 {% endblock %}

@@ -1,5 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Log In{% endblock %}
 {% block content %}
+<div>
 
+    <h2>Sign in</h2><br />
+
+    <form>
+
+        <label>
+            Username <br />
+            <input type="text" placeholder="username" id="username" name="username" value={username} onChange={e => setUsername(e.target.value)} />
+        </label>
+
+        <br /><br />
+
+        <label>
+            Password <br />
+            <input type="password" placeholder="********" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+        </label>
+
+        <br /><br />
+
+        <span><button type="submit" class='btn'>Sign in</button></span>
+
+    </form>
+
+    <button class="linkbtn" onClick={() => props.onFormSwitch('createaccount')}>Don't have an accout? Sign up here.</button>
+
+</div>
 {% endblock %}
