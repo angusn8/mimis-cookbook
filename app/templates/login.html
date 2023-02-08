@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Log In{% endblock %}
 {% block content %}
-
+<div class="login">
+    <h1>Login</h1>
+    <div class="links">
+        <a href="{{ url_for('auth.login') }}" class="active">Login</a>
+        <a href="{{ url_for('auth.register') }}">Register</a>
+    </div>
+    <form action="{{ url_for('auth.login') }}" method="post">
+        <label for="email">
+            <i class="fas fa-user"></i>
+        </label>
+        <input type="text" name="email" placeholder="email" id="email" required>
+        <label for="password">
+            <i class="fas fa-envelope"></i>
+        </label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+        <div class="msg">{{ msg }}</div>
+        <input type="submit" value="Login">
+    </form>
+</div>
 {% endblock %}
