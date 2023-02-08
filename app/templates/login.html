@@ -1,15 +1,15 @@
-<!--
+
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Log In{% endblock %}
 {% block content %}
--->
+
 
 <!doctype html>
 
 <html>
 
     <head>
-        <title>Login Page</title>
+        <title>Log In</title>
         <link href="../static/css/style.css" type="text/css" rel="stylesheet" />
     </head>
 
@@ -21,14 +21,14 @@
 
             <label>
                 Username <br />
-                <input type="text"/>
+                <span class="input"></span><input type="text"/></span>
             </label>
 
             <br /><br />
 
             <label>
                 Password <br />
-                <input type="password"/>
+                <span class="input"><input type="password"/></span>
             </label>
 
             <br /><br />
@@ -37,9 +37,12 @@
 
         </form>
 
-        <button class="linkbtn">Don't have an accout? Sign up here.</button>
+        <div class="link">
+            <a href="register.html">Don't have an accout? Sign up here.</a>
+        </body>
 
     </body>
 
 </html>
+
 <!--{% endblock %}-->
