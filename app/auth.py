@@ -78,3 +78,7 @@ def user_password_change():
             return render_template('changepassword.html', user=current_user)
     else:
         return render_template('changepassword.html', user=current_user)
+
+@auth.route('/profile')
+def profile():
+    return render_template('profile.html')

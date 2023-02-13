@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Home{% endblock %}
 {% block content %}
-<div class='container navbar'>
-    <div class='logo-text'>
+<div class="navbarindex">
+    <div class="logo-text">
         Mimi's Cookbook
     </div>
+    <input type="text" name="search" placeholder="Search..">
     <div>
-        <ul class='nav-links'>
+        <ul class="nav-links">
             <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
             <li><a href="">Cart</a></li>
         </ul>

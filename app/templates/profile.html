@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Mimi's Cookbook | Home{% endblock %}
+{% block content %}
+<div class="navbarsearch">
+    <div class="logo-text">
+        Mimi's Cookbook
+    </div>
+    <input type="text" name="search" placeholder="Search..">
+    <div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
+            <li><a href="">Cart</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-img">
+            <img src="" width="200" alt="">
+        </div>
+        <div class="profile-name-info">
+            <h3 class="user-name">Morgan Hepler</h3>
+            <div class="user-username">
+                <p>@username</p>
+            </div>
+        </div>
+        <div class="uploadbtn-container">
+            <button class="uploadbtn"><i class="fas fa-plus"></i>Upload Recipe</button>
+        </div>
+    </div>
+    <div class="profile-body">
+        <div class="left-side">
+            <div class="profile-side">
+                <p class="user-subscribers"><i class="fas fa-user-alt"></i>100 subscribers</p>
+                <p class="user-email"><i class="fas fa-envelope"></i>email@gmail.com</p>
+                <div class="user-bio">
+                    <h3>Bio<h3>
+                    <p>hello, this is my bio</p>
+                </div>
+                <div class="user-rating">
+                    <h3 class="rating">5.0</h3>
+                    <div class="rate">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="no-reviews">100 reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="settingsbtn"><i class="fa fa-gear"></i>Profile Settings</button>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
