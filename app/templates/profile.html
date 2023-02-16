@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Home{% endblock %}
 {% block content %}
-<div class="navbarsearch">
-    <div class="logo-text">
-        Mimi's Cookbook
-    </div>
+<div class="navbar">
+    <a href="/search">
+        <div class="logo-text">
+            Mimi's Cookbook
+        </div>
+    </a>
     <input type="text" name="search" placeholder="Search..">
     <div>
         <ul class="nav-links">
             <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-            <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
             <li><a href="">Cart</a></li>
         </ul>
     </div>
 </div>
-
 <div class="profile-container">
     <div class="profile-header">
         <div class="profile-img">
             <img src="" width="200" alt="">
         </div>
         <div class="profile-name-info">
-            <h3 class="user-name">Morgan Hepler</h3>
+            <h3 class="user-name">{{user.full_name}}</h3>
             <div class="user-username">
-                <p>@username</p>
+                <p>@{{user.username}}</p>
             </div>
         </div>
         <div class="uploadbtn-container">
@@ -33,14 +34,14 @@
     <div class="profile-body">
         <div class="left-side">
             <div class="profile-side">
-                <p class="user-subscribers"><i class="fas fa-user-alt"></i>100 subscribers</p>
-                <p class="user-email"><i class="fas fa-envelope"></i>email@gmail.com</p>
+                <p class="user-subscribers"><i class="fas fa-user-alt"></i>{{profile.subscribers}} subscribers</p>
+                <p class="user-email"><i class="fas fa-envelope"></i>{{user.email}}</p>
                 <div class="user-bio">
                     <h3>Bio<h3>
-                    <p>hello, this is my bio</p>
+                    <p>{{profile.bio}}</p>
                 </div>
                 <div class="user-rating">
-                    <h3 class="rating">5.0</h3>
+                    <h3 class="rating">{{profile.rating}}</h3>
                     <div class="rate">
                         <div class="stars">
                             <i class="fas fa-star"></i>
@@ -48,7 +49,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <span class="no-reviews">100 reviews</span>
+                            <span class="no-reviews">{{profile.num_reviews}} reviews</span>
                         </div>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
             </div>
         </div>
         <div class="right-side">
-            
+
         </div>
     </div>
 </div>

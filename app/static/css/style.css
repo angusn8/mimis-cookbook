@@ -7,12 +7,12 @@
 }
 
 /*Navigation Bar*/
-.navbarsearch {
+.navbar {
   display: flex;
 }
 
-.navbarindex {
-  display: flex;
+.navbar a {
+  text-decoration: none;
 }
 
 .logo-text {
@@ -64,7 +64,7 @@
   font-size: 17px;
 }
 
-.navbarsearch input[type=text] {
+.navbar input[type=text] {
   width: 750px;
   height: 40px;
   padding-left: 20px;

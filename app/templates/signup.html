@@ -8,6 +8,10 @@
         <a href="{{ url_for('auth.register') }}" class="active">Register</a>
     </div>
     <form action="{{ url_for('auth.register') }}" method="post" autocomplete="off">
+        <label for="full_name">
+            <i class="fas fa-signature"></i>
+        </label>
+        <input type="text" name="full_name" placeholder="Full Name" id="Full Name" required>
         <label for="username">
             <i class="fas fa-user"></i>
         </label>
