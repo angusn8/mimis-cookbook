@@ -533,12 +533,14 @@ button.settingsbtn i{
   display: flex;
   list-style-type: none;
   padding: 0;
+  border-bottom: none;
 }
 
 .nav-tabs ul li {
   width: 100%;
   margin: 3px;
   margin-top: 0;
+  border-bottom: none;
 }
 
 .tabs-btn {
