@@ -64,7 +64,7 @@ def register():
             user = User.query.filter_by(email=email).first()
             login_user(user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('views.search'))
+            return redirect(url_for('views.search', user=current_user))
 
     return render_template("signup.html", user=current_user)
 

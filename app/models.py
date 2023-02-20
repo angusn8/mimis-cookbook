@@ -2,6 +2,7 @@ from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
+from hashlib import md5
 
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
@@ -13,6 +14,11 @@ class User(db.Model, UserMixin):
 
     profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     profile = db.relationship("Profile", backref="profile_id")
+
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
+            digest, size)
 
 class Profile(db.Model):
     __tablename__ = 'profile'
