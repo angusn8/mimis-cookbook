@@ -502,7 +502,7 @@ button.settingsbtn {
   padding: 10px;
   width: 235px;
   border-bottom: 3px;
-  background:rgb(233, 233, 233);
+  background: rgb(233, 233, 233);
   font-size: 16px;
   cursor: pointer;
   outline: none;
@@ -523,26 +523,18 @@ button.settingsbtn i{
 
 .right-side {
   width: 100%;
-  border-top: none;
 }
 
-.nav-tabs {
-  width: 100%;
-  border-bottom: none;
-}
-
-.nav-tabs ul {
+.profile-tabs ul {
   display: flex;
   list-style-type: none;
   padding: 0;
-  border-bottom: none;
 }
 
-.nav-tabs ul li {
+.profile-tabs ul li {
   width: 100%;
   margin: 3px;
   margin-top: 0;
-  border-bottom: none;
 }
 
 .tabs-btn {
