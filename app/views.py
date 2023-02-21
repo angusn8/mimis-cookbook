@@ -18,3 +18,9 @@ def search():
 def profile():
     profile = Profile.query.filter_by(id=current_user.id).first()
     return render_template('profile.html', user=current_user, profile=profile)
+
+@views.route('/profile_settings')
+@login_required
+def profile_settings():
+    profile = Profile.query.filter_by(id=current_user.id).first()
+    return render_template('profile_settings.html', user=current_user, profile=profile)

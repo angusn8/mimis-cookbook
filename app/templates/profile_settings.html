@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}Mimi's Cookbook | Home{% endblock %}
+{% block content %}
+<div class="navbar">
+    <a href="/search" class="logo-text-link">
+        <div class="logo-text">
+            Mimi's Cookbook
+        </div>
+    </a>
+
+    <form class="searchbar">
+        <input type="text" name="search" placeholder="Search..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+    <div>
+        <a class="nav-bars"><i class="fas fa-bars"></i></a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
+            <li><a href="">Cart</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="profile-settings-box">
+    <div class="setting-heading-color">
+        <h3>Profile Picture</h3>
+    </div>
+    <div>
+        <p>Current profile picture</p>
+        <div class="profile-img-settings">
+            <img src="{{ user.avatar(280) }}" width="200" alt="">
+        </div>
+    </div>
+    <hr />
+    <h3>Change your profile picture</h3>
+    <p><span class="bolder-font">Changing your profile picture on Gravatar:</span><br />
+        <span class="smaller-font">Click the link to vist <a href="https://en.gravatar.com/">Gravatar.com</a><br />
+        Create an account using the same email used for Mimi's Cookbook<br />
+        Upload the image you want to use as your profile picture<br />
+        The picture will automatically link to your Mimi's Cookbook account!</span></p>
+</div>
+
+<div class="profile-settings-box">
+    <div class="setting-heading-color">
+        <h3>Name</h3>
+    </div>
+    <div>
+        <p>Current name<br />
+        {{user.full_name}}</p>
+    </div>
+    <hr />
+    <h3>Change your name</h3>
+    <form>
+        <label for="full_name">New Name:</label><br />
+        <input type="text" id="Full Name" name="full_name"><br /><br />   
+        
+        <button class="change-btn" type="submit">Change Name</button>
+    </form>
+</div>
+
+<div class="profile-settings-box">
+    <div class="setting-heading-color">
+        <h3>Username</h3>
+    </div>
+    <div>
+        <p>Current username<br />
+        @{{user.username}}</p>
+    </div>
+    <hr />
+    <h3>Change your username</h3>
+    <form>
+        <label for="username">New Username:</label><br />
+        <input type="text" id="username" name="username"><br /><br />   
+        
+        <button class="change-btn" type="submit">Change Username</button>
+    </form>
+</div>
+
+<div class="profile-settings-box">
+    <div class="setting-heading-color">
+        <h3>Email</h3>
+    </div>
+    <div>
+        <p>Current email<br />
+        {{user.email}}</p>
+    </div>
+    <hr />
+    <h3>Change your email</h3>
+    <form>
+        <label for="email">New Email:</label><br />
+        <input type="text" id="email" name="email"><br /><br />   
+        
+        <button class="change-btn" type="submit">Change Email</button>
+    </form>
+</div>
+
+<div class="profile-settings-box">
+    <div class="setting-heading-color">
+        <h3>Bio</h3>
+    </div>
+    <div>
+        <p>Current bio<br />
+        {{profile.bio}}</p>
+    </div>
+    <hr />
+    <h3>Change your bio</h3>
+    <form>
+        <label for="user_bio">New Bio:</label><br />
+        <input type="input" id="User Bio" name="user_bio"><br /><br />   
+        
+        <button class="change-btn" type="submit">Change Bio</button>
+    </form>
+</div>
+
+<div class="profile-settings-box">
+    <div class="setting-heading-color">
+        <h3>Password</h3>
+    </div>
+    <h3>Change your password</h3>
+    <form>
+        <label for="current_password">Current Password:</label><br />
+        <input type="input" id="Current Password" name="current_password"><br />  
+
+        <label for="password">New Password:</label><br />
+        <input type="input" id="password" name="password"><br /><br />  
+        
+        <button class="change-btn" type="submit">Change Password</button>
+    </form>
+</div>
+{% endblock %}

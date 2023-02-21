@@ -29,16 +29,17 @@
   color: rgb(87, 87, 87);
   margin: 20px 0px 0px 30px;
   font-size: 15pt;
+  font-weight: 350;
 }
 
 .back-home-link:hover {
-  color: rgb(44, 44, 44);
+  color: rgb(31, 31, 31);
 }
 
 .back-home-link i {
   margin-right: 5px;
   font-size: 14pt;
-  -webkit-text-stroke: 1.4px white;
+  -webkit-text-stroke: 1.1px white;
 }
 
 .nav-links {
@@ -60,7 +61,7 @@
 
 .nav-links a {
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 350;
   display: block;
   color: black;
   text-decoration: none;
@@ -522,6 +523,7 @@ button.settingsbtn i{
 
 .right-side {
   width: 100%;
+  border-top: none;
 }
 
 .nav-tabs {
@@ -561,7 +563,95 @@ button.settingsbtn i{
   box-shadow: none;
 }
 
+/*Profile Settings*/
+.profile-settings-box {
+  border: 1px rgb(195, 195, 195) solid;
+  border-radius: 10px;
+  margin: 20px 100px 40px 100px;
+}
 
+.setting-heading-color {
+  background-color: rgb(242, 242, 242);
+  border-radius: 10px 10px 0px 0px;
+  height: 45px;
+}
+
+.profile-settings-box h3 {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px 0px 0px 14px;
+}
+
+.profile-settings-box hr {
+  margin: 20px 0px 5px 0px;
+}
+
+.profile-settings-box p {
+  font-size: 15px;
+  padding: 14px 0px 0px 14px;
+}
+
+.profile-settings-box label {
+  font-size: 15px;
+  padding: 14px 0px 0px 14px;
+}
+
+.profile-settings-box input {
+  font-size: 15px;
+  margin: 10px 14px 0px 14px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.profile-settings-box a {
+  font-size: 12px;
+  text-decoration: none;
+  color: rgb(255, 89, 103);
+  font-weight: 600;
+}
+
+.profile-settings-box a:hover {
+  text-decoration: underline;
+}
+
+.bolder-font {
+  font-weight: 400;
+}
+
+.smaller-font {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.profile-img-settings {
+  margin-left: 20px;
+}
+
+.profile-img-settings img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: 4px solid white;
+  box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+  background: white;
+}
+
+.change-btn {
+  margin: 0px 14px 20px 14px;
+  border: 0;
+  padding: 6px 10px 6px 10px;
+  background: rgb(255, 89, 103);
+  box-shadow: 0px 2px 5px rgba(0,0,0,.2);
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.change-btn:hover {
+  background: rgb(251, 62, 78);
+}
 
 
 
