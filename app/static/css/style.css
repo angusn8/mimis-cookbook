@@ -55,7 +55,7 @@
 }
 
 .nav-bars i {
-  visibility: hidden; 
+  visibility: hidden;
   float: right;
 }
 
@@ -151,11 +151,11 @@
   .searchbar {
     margin-right: 75px;
   }
-  
+
   .searchbar input[type=text] {
     width: 85%;
   }
-  
+
   .searchbar button {
     width: 15%;
   }
@@ -167,11 +167,11 @@
     min-width: 310px;
     margin-top: 10px;
   }
-  
+
   .searchbar input[type=text] {
     width: 90%;
   }
-  
+
   .searchbar button {
     width: 10%;
   }
@@ -195,14 +195,14 @@
     min-width: 0px;
     border: 1.8px solid black;
   }
-  
+
   .searchbar input[type=text] {
     width: 85%;
     font-size: 15px;
     margin-top: 2.5px;
     padding-left: 15px;
   }
-  
+
   .searchbar button {
     width: 15%;
     padding: 5px;
@@ -248,14 +248,14 @@
     height: 28px;
     border: 1.4px solid black;
   }
-  
+
   .searchbar input[type=text] {
     width: 85%;
     font-size: 12px;
     margin-top: 2.5px;
     padding-left: 15px;
   }
-  
+
   .searchbar button {
     width: 15%;
     padding: 4px;
@@ -590,7 +590,7 @@ button.settingsbtn i{
 
 .profile-settings-box input {
   font-size: 15px;
-  margin: 10px 14px 0px 14px;
+  margin: 10px 14px 10px 14px;
   width: 400px;
   max-width: 90%;
 }
@@ -629,7 +629,7 @@ button.settingsbtn i{
 }
 
 .change-btn {
-  margin: 0px 14px 20px 14px;
+  margin: 0px 100px 40px 100px;
   border: 0;
   padding: 6px 10px 6px 10px;
   background: rgb(255, 89, 103);
