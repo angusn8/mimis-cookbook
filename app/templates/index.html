@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Home{% endblock %}
 {% block content %}
-<div class='container navbar'>
-    <div class='logo-text'>
-        Mimi's Cookbook
-    </div>
+<div class="navbar">
+    <a href="/" class="logo-text-link">
+        <div class="logo-text">
+            Mimi's Cookbook
+        </div>
+    </a>
+
+    <form class="searchbar">
+        <input type="text" name="search" placeholder="Search..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    
     <div>
-        <ul class='nav-links'>
+        <a class="nav-bars"><i class="fas fa-bars"></i></a>
+        <ul class="nav-links">
             <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
             <li><a href="">Cart</a></li>
         </ul>

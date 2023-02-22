@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Mimi's Cookbook | Log In{% endblock %}
 {% block content %}
+<div class="navbar">
+    <a href="/" class="back-home-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+</div>
+
 <div class="login">
     <h1>Login</h1>
     <div class="links">
@@ -11,7 +17,7 @@
         <label for="email">
             <i class="fas fa-envelope"></i>
         </label>
-        <input type="text" name="email" placeholder="email" id="email" required>
+        <input type="text" name="email" placeholder="Email" id="email" required>
         <label for="password">
             <i class="fas fa-lock"></i>
         </label>

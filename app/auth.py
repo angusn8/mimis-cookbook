@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, url_for, redirect
-from .models import User
+from .models import User, Profile
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -13,17 +13,18 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
         user = User.query.filter_by(email=email).first()
-        if user:
-            if check_password_hash(user.password, password):
-                flash('Logged in successfully', category='success')
-                login_user(user, remember=True)
-                return redirect(url_for('views.search', user=current_user))
+        if '@' in request.form.get('email') and '.' in request.form.get('email'):
+            if user:
+                if check_password_hash(user.password, password):
+                    flash('Logged in successfully', category='success')
+                    login_user(user, remember=True)
+                    return redirect(url_for('views.search', user=current_user))
+                else:
+                    flash('Incorrect Password', category='error')
             else:
-                flash('Incorrect Password', category='error')
+                flash('No account for this email', category='error')
         else:
-            flash('No account for this email', category='error')
-    else:
-        flash('Please enter a valid email address', category='error')
+            flash('Please enter a valid email address', category='error')
     return render_template(('login.html'), user=current_user)
 
 
@@ -40,23 +41,30 @@ def register():
         email = request.form.get('email')
         username = request.form.get('username')
         password = request.form.get('password')
+        full_name = request.form.get('full_name')
 
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email already exists.', category='error')
+        elif len(full_name) < 1:
+            flash('Name cannot be blank', category='error')
         elif len(email) < 4:
             flash('Email must be greater than 3 characters.', category='error')
         elif len(username) < 2:
-            flash('First name must be greater than 1 character.', category='error')
+            flash('Username must be greater than 1 character.', category='error')
         elif len(password) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_user = User(email=email, username=username, password=generate_password_hash(
+            new_user = User(email=email, username=username,full_name=full_name, password=generate_password_hash(
                 password, method='sha256'))
+            new_profile = Profile()
             db.session.add(new_user)
+            db.session.add(new_profile)
             db.session.commit()
+            user = User.query.filter_by(email=email).first()
+            login_user(user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('views.search'))
+            return redirect(url_for('views.search', user=current_user))
 
     return render_template("signup.html", user=current_user)
 

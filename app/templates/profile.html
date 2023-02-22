@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Mimi's Cookbook | Home{% endblock %}
+{% block content %}
+<div class="navbar">
+    <a href="/search" class="logo-text-link">
+        <div class="logo-text">
+            Mimi's Cookbook
+        </div>
+    </a>
+
+    <form class="searchbar">
+        <input type="text" name="search" placeholder="Search..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+    <div>
+        <a class="nav-bars"><i class="fas fa-bars"></i></a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
+            <li><a href="">Cart</a></li>
+        </ul>
+    </div>
+</div>
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-img">
+            <img src="{{ user.avatar(280) }}" width="200" alt="">
+        </div>
+        <div class="profile-name-info">
+            <h3 class="user-name">{{user.full_name}}</h3>
+            <div class="user-username">
+                <p>@{{user.username}}</p>
+            </div>
+        </div>
+        <div class="uploadbtn-container">
+            <button class="uploadbtn"><i class="fas fa-plus"></i>Upload Recipe</button>
+        </div>
+    </div>
+    <div class="profile-body">
+        <div class="left-side">
+            <div class="profile-side">
+                <p class="user-subscribers"><i class="fas fa-user-alt"></i>{{profile.subscribers}} subscribers</p>
+                <p class="user-email"><i class="fas fa-envelope"></i>{{user.email}}</p>
+                <div class="user-bio">
+                    <h3>Bio<h3>
+                    <p>{{profile.bio}}</p>
+                </div>
+                <div class="user-rating">
+                    <h3 class="rating">{{profile.rating}}</h3>
+                    <div class="rate">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="no-reviews">{{profile.num_reviews}} reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ url_for('views.update_profile') }}">
+                        <button class="settingsbtn"><i class="fa fa-gear"></i>Profile Settings</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="profile-tabs">
+                <ul>
+                    <li><button class="tabs-btn active">Uploaded Recipes</button></li>
+                    <li><button class="tabs-btn">Purchased Recipes</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
