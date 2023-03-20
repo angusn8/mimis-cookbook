@@ -39,3 +39,8 @@ def update_profile():
         db.session.commit()
         return redirect(url_for('views.profile', user=user, profile=profile))
     return render_template('profile_settings.html', user=user, profile=profile)
+
+@views.route('/profile/upload')
+@login_required
+def upload_recipe():
+    return render_template('recipe_template.html')
