@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import current_user, login_required
 from .models import Profile
 from . import db
+from fileinput import filename
+from flask import *  
 
 views = Blueprint('views', __name__)
 
@@ -44,3 +46,10 @@ def update_profile():
 @login_required
 def upload_recipe():
     return render_template('recipe_template.html')
+    
+@views.route('/profile', methods=['POST'])  
+def submit_form():  
+    if request.method == 'POST':  
+        f = request.files['recipe_image']
+        f.save(f.filename)
+        return render_template("profile.html", user=current_user, profile=profile, name=f.filename)  

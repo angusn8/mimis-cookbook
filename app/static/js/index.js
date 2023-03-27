@@ -39,9 +39,14 @@ function bulletedInput(event) {
 }
 
 var fileInput = document.getElementById('recipe_image');
+
 fileInput.addEventListener('change', function(event) {
   var input = event.target;
   for (var i = 0; i < input.files.length; i++) {
     document.getElementById('file_output').innerHTML = input.files[i].name;
   }
 });
+
+
+
+
