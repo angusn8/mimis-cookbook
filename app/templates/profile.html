@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="uploadbtn-container">
-            <a href="{{ url_for('views.upload_recipe') }}">
+            <a href="{{ url_for('views.recipe_upload') }}">
                 <button class="uploadbtn"><i class="fas fa-plus"></i><span class="hide-upload-btn-content">Upload Recipe</span></button>
             </a>
         </div>
@@ -78,7 +78,22 @@
             </div>
             <div class="profile-recipes">
                 <ul>
+                    {% for recipe in recipes %}
                     <a><li>
+                        <img src="{{url_for('static', filename=recipe.photo_path)}}" alt="">
+                        <h4>{{recipe.title}}</h4>
+                        <p>{{user.username}}</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    {% endfor %}
+                    <!-- <a><li>
                         <img src="{{url_for('static', filename='chocolate-chip-cookies.jpg')}}"/>
                         <h4>Chocolate Chip Cookies</h4>
                         <p>@morganhepler</p>
@@ -155,7 +170,7 @@
                             <i class="fas fa-star"></i>
                             (0 reviews)
                         </div>
-                    </li></a>
+                    </li></a> -->
                 </ul>
             </div>
         </div>

@@ -25,7 +25,7 @@
 </div>
 <div class="upload-form-container">
     <div class="upload-form">
-        <form action="{{ url_for('views.submit_form') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url_for('views.recipe_upload') }}" method="POST" enctype="multipart/form-data">
             <div class="recipe-name">
                 <label for="title">Recipe Name:&nbsp;</label>
                 <input type="text" id="title" name="title">
@@ -55,9 +55,9 @@
                 <output id="file_output" name="file_output"></output>
             </div>
             <div class="submit-upload">
-                <input type="submit" value="Submit My Recipe!"> 
+                <input type="submit" value="Submit My Recipe!">
             </div>
-        </form> 
+        </form>
     </div>
 </div>
 {% endblock %}

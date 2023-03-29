@@ -29,3 +29,15 @@ class Profile(db.Model):
     rating = db.Column(db.Float, default=0.0)
     num_reviews = db.Column(db.Integer, default=0)
 
+class Recipe(db.Model):
+    __tablename__ = 'recipe'
+    id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer)
+    title = db.Column(db.String(255))
+    time = db.Column(db.String(255))
+    servings = db.Column(db.String(255))
+    ingredients = db.Column(db.String(255))
+    directions = db.Column(db.String(10000))
+    photo_path = db.Column(db.String(255))
+
