@@ -780,7 +780,7 @@ button.uploadbtn i{
 button.settingsbtn {
   position: absolute;
   left: 55px;
-  top: 540px;
+  top: 510px;
   border: 0;
   padding: 10px;
   width: 235px;
@@ -881,7 +881,7 @@ button.settingsbtn i{
   }
 
   button.settingsbtn {
-    top: 530px;
+    top: 500px;
   }
 }
 
@@ -973,7 +973,7 @@ button.settingsbtn i{
 
   button.settingsbtn {
     width: 210px;
-    top: 475px;
+    top: 445px;
   }
 
   .hide-settings-btn-content {
