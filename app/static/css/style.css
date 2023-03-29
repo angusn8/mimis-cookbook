@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  z-index: 999;
 }
 
 .logo-text {
@@ -24,26 +25,9 @@
   text-decoration: none;
 }
 
-.back-home-link {
-  text-decoration: none;
-  color: rgb(87, 87, 87);
-  margin: 20px 0px 0px 30px;
-  font-size: 15pt;
-  font-weight: 350;
-}
-
-.back-home-link:hover {
-  color: rgb(31, 31, 31);
-}
-
-.back-home-link i {
-  margin-right: 5px;
-  font-size: 14pt;
-  -webkit-text-stroke: 1.1px white;
-}
-
 .nav-links {
   display: flex;
+  visibility: visible;
   margin-right: 25px;
   margin-top: 15px;
   margin-left: 5px;
@@ -54,9 +38,11 @@
   list-style: none;
 }
 
-.nav-bars i {
+button.nav-bars {
   visibility: hidden;
   float: right;
+  width: 0px;
+  padding: 0;
 }
 
 .nav-links a {
@@ -68,7 +54,7 @@
   padding: 3px;
   padding-left: 15px;
   padding-right: 15px;
-  width: fit-content;
+  width: max-content;
   text-align: center;
 }
 
@@ -119,12 +105,30 @@
 }
 
 
-@media (max-width: 925px){
+@media (max-width: 925px) {
   .nav-links {
-    visibility: hidden;
+    display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    visibility: hidden;
+    top: 65px;
+    right: 0;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    padding: 5px;
+    background-color: white;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    margin: auto;
+    width: 100%;
+    padding: 5px 20px 5px 20px;
+    margin: 5px 0px 5px 0px;
+  }
+
+  .nav-links a:hover {
+    background-color: rgb(242, 242, 242);
+    border-radius: 20px;
   }
 
   .nav-bars i {
@@ -137,8 +141,9 @@
     font-weight: 10px;
     color: black;
     padding: 5px;
-    padding-left: 12px;
     padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 5px;
   }
 
   .nav-bars i:hover {
@@ -162,6 +167,10 @@
 }
 
 @media (max-width: 705px){
+  .nav-links {
+    top: 55px;
+  }
+
   .searchbar {
     margin-right: 25px;
     min-width: 310px;
@@ -180,6 +189,17 @@
 @media (max-width: 420px){
   .logo-text {
     font-size: 35px;
+  }
+
+  .nav-links {
+    top: 45px;
+    padding: 4px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 4px 18px 4px 18px;
+    margin: 4px 0px 4px 0px;
   }
 
   .nav-bars i {
@@ -222,6 +242,17 @@
     font-size: 30px;
   }
 
+  .nav-links {
+    top: 40px;
+    padding: 3px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    padding: 3px 16px 3px 16px;
+    margin: 3px 0px 3px 0px;
+  }
+
   .nav-bars i {
     position: absolute;
     -webkit-text-stroke: 1.6px white;
@@ -231,10 +262,20 @@
   }
 }
 
-
 @media (max-width: 305px){
   .logo-text {
     font-size: 25px;
+  }
+
+  .nav-links {
+    top: 32px;
+    padding: 2px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    padding: 2px 14px 2px 14px;
+    margin: 2px 0px 2px 0px;
   }
 
   .nav-bars i {
@@ -272,6 +313,24 @@
 }
 
 /* Login */
+.back-home-link {
+  text-decoration: none;
+  color: rgb(87, 87, 87);
+  margin: 20px 0px 0px 30px;
+  font-size: 15pt;
+  font-weight: 350;
+}
+
+.back-home-link:hover {
+  color: rgb(31, 31, 31);
+}
+
+.back-home-link i {
+  margin-right: 5px;
+  font-size: 14pt;
+  -webkit-text-stroke: 1.1px white;
+}
+
 .login, .register {
   width: 400px;
   background-color: #ffffff;
@@ -341,12 +400,224 @@
   transition: background-color 0.2s;
 }
 
+@media (max-width: 460px){
+  .login, .register {
+    width: 80%;
+    margin: 100px auto;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 270px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 444px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 260px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 434px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 250px;
+    height: 50px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 418px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 245px;
+    height: 45px;
+  }
+  .login form label, .register form label {
+    width: 45px;
+    height: 45px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 400px){
+  .login h1, .register h1 {
+    font-size: 18pt;
+    padding: 16px 0 16px 0;
+  }
+  .login .links a, .register .links a {
+    font-size: 12pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 235px;
+  }
+}
+
+@media (max-width: 387px){
+  .login h1, .register h1 {
+    font-size: 16pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 230px;
+    height: 40px;
+  }
+  .login .links a, .register .links a {
+    font-size: 11pt;
+  }
+  .login form label, .register form label {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 372px){
+  .login h1, .register h1 {
+    font-size: 15pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 230px;
+    height: 35px;
+  }
+  .login .links a, .register .links a {
+    font-size: 10pt;
+  }
+  .login form label, .register form label {
+    width: 35px;
+    height: 35px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 8px;
+  }
+  .back-home-link {
+    font-size: 14pt;
+  }
+  .back-home-link i {
+    margin-right: 3px;
+    font-size: 13pt;
+    -webkit-text-stroke: 1.0px white;
+  }
+}
+
+@media (max-width: 366px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 225px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 355px){
+  .login h1, .register h1 {
+    font-size: 14pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 225px;
+    height: 30px;
+  }
+  .login form label, .register form label {
+    width: 30px;
+    height: 30px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 342px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 215px;
+  }
+}
+
+@media (max-width: 334px){
+  .login h1, .register h1 {
+    font-size: 14pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 208px;
+    height: 30px;
+  }
+  .login .links a, .register .links a {
+    font-size: 10pt;
+  }
+  .login form label, .register form label {
+    width: 30px;
+    height: 30px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 4px;
+  }
+  .back-home-link {
+    font-size: 12pt;
+  }
+  .back-home-link i {
+    margin-right: 3px;
+    font-size: 11pt;
+    -webkit-text-stroke: 1.0px white;
+  }
+}
+
+@media (max-width: 324px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 200px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 3px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 314px){
+  .login h1, .register h1 {
+    font-size: 13pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 193px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 2px;
+    padding: 9px;
+  }
+}
+
+@media (max-width: 303px){
+  .login h1, .register h1 {
+    font-size: 12pt;
+  }
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 193px;
+    height: 25px;
+  }
+  .login .links a, .register .links a {
+    font-size: 9pt;
+  }
+  .login form label, .register form label {
+    width: 25px;
+    height: 25px;
+  }
+  .login form input[type="submit"], .register form input[type="submit"] {
+    margin-top: 0px;
+    padding: 8px;
+  }
+  
+}
+
+@media (max-width: 290px){
+  .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 183px;
+  }
+}
+
 /* Profile Page */
 .profile-container {
-  padding-top: 40px;
+  padding-top: 30px;
   margin: 0px;
   background: white;
-  height: 100vh;
+  height: fit-content;
+  position: relative;
 }
 
 .profile-header {
@@ -357,6 +628,7 @@
   position: relative;
   box-shadow: 0px 3px 4px rgba(0,0,0,.2);
   justify-content: space-between;
+  z-index: 50;
 }
 
 .profile-header-more{
@@ -382,7 +654,6 @@
   width: 230px;
   border: 4px solid white;
   box-shadow: 0px 5px 10px rgba(0,0,0,.2);
-  position: absoulte;
   left: 60px;
   top: 20px;
   z-index: 5;
@@ -403,23 +674,25 @@
   font-weight: 300;
 }
 
-.profile-name-info .user-username {
+.user-username p {
   font-weight: 250;
+  font-size: 20px;
   color:  #777;
 }
 
 .profile-body {
   width: 100%;
   display: flex;
-  padding-right: 25px;
+  padding-right: 0px;
 }
 
 .profile-side {
   width: 300px;
+  height: fit-content;
   background: white;
   box-shadow: 0px 3px 5px rgba(0,0,0,.2);
-  padding: 90px 30px 20px;
-  margin-left: 25px;
+  padding: 80px 30px 100px;
+  margin: 0px 0px 25px 25px;
   z-index: 10;
 }
 
@@ -448,7 +721,6 @@ button.uploadbtn {
   width: 260px;
   border-bottom: 3px;
   background:rgb(255, 89, 103);
-  font-size: 16px;
   cursor: pointer;
   outline: none;
   margin-top: 100px;
@@ -466,12 +738,18 @@ button.uploadbtn i{
   margin-right: 7px;
 }
 
+.hide-upload-btn-content {
+  font-size: 16px;
+  visibility: visible;
+}
+
 .uploadbtn-container {
   width: 300px;
 }
 
 .user-rating {
   display: flex;
+  position: relative;
 }
 
 .user-rating h3 {
@@ -481,15 +759,17 @@ button.uploadbtn i{
   color: #333;
 }
 
-.user-rating .no-reviews {
+.no-reviews {
   font-size: 14px;
+  position: absolute;
+  top: 32px;
+  left: 78px;
   color: #333;
 }
 
 .rate {
   padding-top: 6px;
   margin-left: 2px;
-  margin-right: 50px;
 }
 
 .rate i {
@@ -498,12 +778,14 @@ button.uploadbtn i{
 }
 
 button.settingsbtn {
+  position: absolute;
+  left: 55px;
+  top: 540px;
   border: 0;
   padding: 10px;
   width: 235px;
   border-bottom: 3px;
-  background: rgb(233, 233, 233);
-  font-size: 16px;
+  background: rgb(242, 242, 242);
   cursor: pointer;
   outline: none;
   margin-top: 15px;
@@ -514,11 +796,16 @@ button.settingsbtn {
 }
 
 button.settingsbtn:hover {
-  background: rgb(219, 219, 219);
+  background: rgb(230, 230, 230);
 }
 
 button.settingsbtn i{
   margin-right: 7px;
+}
+
+.hide-settings-btn-content {
+  font-size: 16px;
+  visibility: visible;
 }
 
 .right-side {
@@ -555,6 +842,512 @@ button.settingsbtn i{
   box-shadow: none;
 }
 
+@media (max-width: 1280px){
+  .profile-name-info h3 {
+    font-size: 40px;
+  }
+
+  button.uploadbtn {
+    width: 230px;
+  }
+}
+
+@media (max-width: 1140px){
+  .profile-container {
+    padding-top: 30px;
+  }
+
+  .profile-name-info h3 {
+    font-size: 35px;
+  }
+
+  button.uploadbtn {
+    width: 200px;
+  }
+
+  .profile-img img {
+    height: 220px;
+    width: 220px;
+  }
+
+  .profile-name-info {
+    padding-top: 45px;
+    padding-left: 35px;
+  }
+
+  .profile-side {
+    height: fit-content;
+    padding: 75px 30px 100px;
+  }
+
+  button.settingsbtn {
+    top: 530px;
+  }
+}
+
+@media (max-width: 1020px){
+  .profile-name-info h3 {
+    font-size: 30px;
+  }
+
+  .profile-name-info {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 925px){
+  .profile-container {
+    padding-top: 20px;
+  }
+
+  .profile-header {
+    height: 180px;
+  }
+
+  .profile-img img {
+    height: 200px;
+    width: 200px;
+    margin: 10px 0px 0px 5px;
+  }
+
+  .profile-name-info {
+    padding-left: 30px;
+  }
+
+  .profile-name-info h3 {
+    font-size: 30px;
+  }
+
+  .profile-name-info p {
+    font-size: 16px;
+  }
+
+  .hide-upload-btn-content {
+    font-size: 15px;
+  }
+
+  button.uploadbtn i {
+    font-size: 15px;
+  }
+
+  .profile-side {
+    width: 275px;
+    height: fit-content;
+    padding: 60px 30px 90px;
+  }
+
+  .profile-side p {
+    font-size: 13px;
+  }
+  
+  .profile-side p i {
+    font-size: 13px;
+  }
+  
+  .user-bio h3 {
+    font-size: 25px;
+  }
+  
+  .user-rating h3 {
+    font-size: 40px;
+  }
+  
+  .no-reviews {
+    font-size: 13px;
+    top: 24px;
+    left: 65px;
+  }
+  
+  .rate {
+    padding: 3px 10px 0px 0px;
+    line-height: 20px;
+  }
+  
+  .rate i {
+    font-size: 13px;
+  }
+
+  .settingsbtn-container {
+    top: 475px;
+  }
+
+  button.settingsbtn {
+    width: 210px;
+    top: 475px;
+  }
+
+  .hide-settings-btn-content {
+    font-size: 15px;
+  }
+
+  button.settingsbtn i {
+    font-size: 15px;
+  }
+
+  .tabs-btn {
+      font-size: 15px;
+  }
+}
+
+@media (max-width: 820px){
+  .profile-container {
+    padding-top: 10px;
+  }
+
+  .profile-header {
+    height: 178px;
+    box-shadow: none;
+  }
+
+  .profile-img {
+    width: 175px;
+    margin-left: 30px;
+  }
+
+  .profile-img img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .profile-name-info {
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 40px;
+    width: 90%;
+  }
+  
+  .profile-name-info h3 {
+    font-size: 24px;
+  }
+  
+  .user-username p {
+    font-size: 14px;
+  }
+
+  .uploadbtn-container {
+    position: absolute;
+    right: 60px;
+    top: 115px;
+  }
+
+  button.uploadbtn {
+    width: 175px;
+    padding: 8px;
+    margin: 0px 30px 0px 0px;
+    position: absolute;
+    right: 0px;
+  }
+
+  .hide-upload-btn-content {
+    font-size: 14px;
+  }
+
+  button.uploadbtn i {
+    font-size: 13px;
+  }
+
+  .profile-body {
+    width: 100%;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .left-side {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .profile-side {
+    padding: 5px 40px 10px 40px;
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .profile-side p {
+    margin: 0px 25px 15px 0px;
+  }
+  
+  .profile-side p i {
+    margin-right: 8px;
+  }
+  
+  .user-bio {
+    width: 70%;
+  }
+
+  .user-bio h3 {
+    margin-bottom: 3px;
+  }
+
+  .user-bio p {
+    margin-bottom: 15px;
+  }
+
+  .user-rating {
+    position: absolute; 
+    right: 30px;
+    bottom: 10px;
+  }
+  
+  button.settingsbtn {
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    z-index: 100;
+    right: 40px;
+    left: auto;
+    top: 125px;
+  }
+  
+  button.settingsbtn i{
+    margin-right: 7px;
+    padding: 0px;
+    font-size: 20px;
+  }
+
+  .hide-settings-btn-content {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 600px){
+  .user-bio {
+    width: 60%;
+  }
+
+  .profile-side p {
+    width: 100%;
+  }
+
+  .uploadbtn-container {
+    right: 54px;
+    top: 135px;
+  }
+
+  button.uploadbtn {
+    width: 150px;
+    padding: 6px;
+    padding-top: 5px;
+  }
+
+  .hide-upload-btn-content {
+    font-size: 13px;
+  }
+
+  button.uploadbtn i {
+    font-size: 12px;
+  }
+  
+  button.settingsbtn {
+    top: 145px;
+    width: 36px;
+    height: 36px;
+    padding: 7.5px;
+  }
+  
+  button.settingsbtn i{
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+  }
+
+  .tabs-btn {
+    font-size: 13px;
+    height: 37px;
+  }
+}
+
+@media (max-width: 520px){
+  .user-bio {
+    width: 50%;
+  }
+}
+
+@media (max-width: 440px){
+  .profile-container {
+    padding-top: 5px;
+  }
+
+  .profile-header {
+    height: 120px;
+  }
+
+  .profile-img {
+    width: 150px;
+  }
+
+  .profile-img img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .profile-name-info {
+    padding-top: 25px;
+    padding-left: 8px;
+    padding-right: 40px;
+    width: 90%;
+  }
+  
+  .profile-name-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .user-username p {
+    font-size: 10px;
+  }
+
+  .profile-side {
+    padding-bottom: 8px;
+  }
+  
+  .profile-side p {
+    margin: 0px 25px 10px 0px;
+    font-size: 10px;
+  }
+  
+  .profile-side p i {
+    margin-right: 7px;
+    font-size: 10px;
+  }
+  
+  .user-bio {
+    width: 100%;
+  }
+
+  .user-bio h3 {
+    margin-bottom: 3px;
+    font-size: 18px;
+  }
+
+  .user-bio p {
+    margin-bottom: 15px;
+  }
+
+  .user-rating {
+    position: relative;
+    top: -3px;
+    left: 0px;
+  }
+
+  .user-rating h3 {
+    font-size: 26px;
+  }
+  
+  .no-reviews {
+    font-size: 10px;
+    top: 15px;
+    left: 43px;
+  }
+  
+  .rate {
+    padding: 0px 0px 0px 0px;
+    margin: -2px 0px 0px -0.5px;
+  }
+  
+  .rate i {
+    font-size: 10px;
+  }
+
+  .tabs-btn {
+    font-size: 12px;
+    height: 35px;
+  }
+
+  .uploadbtn-container {
+    right: 35px;
+    top: 100px;
+  }
+
+  button.uploadbtn {
+    width: 110px;
+    height: 20px;
+    padding: 1px;
+    padding-top: 0px;
+  }
+
+  .hide-upload-btn-content {
+    font-size: 11px;
+    position: absolute;
+    top: 2px;
+    left: 23px;
+  }
+
+  button.uploadbtn i {
+    font-size: 10px;
+    position: absolute;
+    top: 5.5px;
+    left: 10px;
+  }
+  
+  button.settingsbtn {
+    top: 105px;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+  }
+  
+  button.settingsbtn i{
+    font-size: 13px;
+    position: absolute;
+    top: 4px;
+    left: 3.5px;
+  }
+}
+
+@media (max-width: 335px){
+  .profile-container {
+    padding: 0px;
+  }
+
+  .profile-img {
+    margin-left: 20px;
+  }
+
+  .profile-name-info {
+    padding-right: 20px;
+    margin-right: 0;
+  }
+
+  .uploadbtn-container {
+    right: 15px;
+    top: 120px;
+  }
+
+  button.uploadbtn {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    padding-top: 0px;
+  }
+
+  .hide-upload-btn-content {
+    visibility: hidden;
+  }
+
+  button.uploadbtn i {
+    font-size: 12px;
+    position: absolute;
+    top: 4px;
+    left: 4.5px;
+  }
+
+  .profile-side {
+    padding: 5px 20px 5px 20px;
+  }
+
+  button.settingsbtn {
+    top: 120px;
+    right: 20px;
+  }
+}
+
 /*Profile Settings*/
 .profile-settings-box {
   border: 1px rgb(195, 195, 195) solid;
@@ -571,7 +1364,7 @@ button.settingsbtn i{
 .profile-settings-box h3 {
   font-size: 18px;
   font-weight: 500;
-  padding: 12px 0px 0px 14px;
+  padding: 12px 14px 0px 14px;
 }
 
 .profile-settings-box hr {
@@ -580,7 +1373,7 @@ button.settingsbtn i{
 
 .profile-settings-box p {
   font-size: 15px;
-  padding: 14px 0px 0px 14px;
+  padding: 14px 14px 0px 14px;
 }
 
 .profile-settings-box label {
@@ -600,6 +1393,10 @@ button.settingsbtn i{
   text-decoration: none;
   color: rgb(255, 89, 103);
   font-weight: 600;
+}
+
+.profile-settings-box i {
+  color: rgb(255, 89, 103);
 }
 
 .profile-settings-box a:hover {
@@ -629,9 +1426,10 @@ button.settingsbtn i{
 }
 
 .change-btn {
+  width: 225px;
   margin: 0px 100px 40px 100px;
   border: 0;
-  padding: 6px 10px 6px 10px;
+  padding: 10px 15px 10px 15px;
   background: rgb(255, 89, 103);
   box-shadow: 0px 2px 5px rgba(0,0,0,.2);
   font-size: 14px;
@@ -645,6 +1443,778 @@ button.settingsbtn i{
   background: rgb(251, 62, 78);
 }
 
+@media (max-width: 705px){
+  .profile-settings-box {
+    margin: 20px 50px 40px 50px;
+  }
 
+  .change-btn {
+    margin: 0px 50px 40px 50px;
+  }
+}
 
+@media (max-width: 569px){
+  .profile-settings-box input {
+    width: 300px;
+  }
+}
 
+@media (max-width: 469px){
+  .profile-settings-box input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 418px){
+  .profile-settings-box {
+    margin: 20px 25px 40px 25px;
+  }
+  
+  .profile-settings-box label {
+    font-size: 13px;
+    padding: 14px 0px 0px 14px;
+  }
+  
+  .profile-settings-box input {
+    font-size: 13px;
+    margin: 10px 14px 10px 14px;
+    width: 200px;
+  }
+  
+  .profile-img-settings img {
+    height: 120px;
+    width: 120px;
+  }
+  
+  .change-btn {
+    width: 200px;
+    margin: 0px 25px 40px 25px;
+    border: 0;
+    padding: 8px 13px 8px 13px;
+  }
+}
+
+@media (max-width: 319px){
+  
+  .profile-settings-box label {
+    font-size: 11px;
+  }
+  
+  .profile-settings-box input {
+    font-size: 11px;
+    width: 170px;
+  }
+  
+  .change-btn {
+    width: 160px;
+    margin: 0px 25px 40px 25px;
+    border: 0;
+    padding: 6px 4px 6px 4px;
+  }
+}
+
+@media (max-width: 319px){
+  
+  .setting-heading-color {
+    background-color: rgb(242, 242, 242);
+    border-radius: 10px 10px 0px 0px;
+    height: 35px;
+  }
+  
+  .profile-settings-box h3 {
+    font-size: 15px;
+    padding: 9px 14px 0px 14px;
+  }
+  
+  .profile-settings-box p {
+    font-size: 13px;
+  }
+  
+  .profile-img-settings img {
+    height: 130px;
+    width: 130px;
+  }
+  
+  .profile-settings-box label {
+    font-size: 8px;
+  }
+  
+  .profile-settings-box input {
+    font-size: 10px;
+    width: 150px;
+  }
+  
+  .change-btn {
+    width: 140px;
+    margin: 0px 25px 40px 25px;
+    border: 0;
+    padding: 6px 4px 6px 4px;
+    font-size: 12px;
+  }
+}
+
+/*Upload Form*/
+.upload-form-container {
+  margin: 30px 0px 50px 0px;
+}
+
+.upload-form {
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  margin: auto;
+  padding: 0px;
+  width: 700px;
+}
+
+.upload-form input[type=text] {
+  background-color: white;
+  border: none;
+  border-bottom: 1px black solid;
+}
+
+.upload-form input[type=text]:focus {
+  outline: none;
+}
+
+.upload-form textarea {
+  background-color: white;
+  border: none;
+}
+
+.recipe-name {
+  background-color: rgb(242, 242, 242);
+  display: flex;
+  justify-content: center;
+  padding: 50px 60px 25px 60px;
+}
+
+.recipe-name label {
+  font-size: 30px;
+}
+
+.recipe-name input[type=text] {
+  font-size: 30px;
+  padding-left: 5px;
+  background-color: rgb(242, 242, 242);
+  height: fit-content;
+  flex-grow: 1;
+}
+
+.time-and-servings {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.time-and-servings input[type=text] {
+  height: fit-content;
+  width: 100px;
+  padding-left: 5px;
+}
+
+.ingredients {
+  margin: 30px 50px 30px 50px;
+}
+
+.ingredients label {
+  vertical-align: top;
+ }
+
+.ingredients textarea {
+  margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  border: 1px black solid;
+  border-radius: 10px;
+}
+
+.ingredients textarea:focus {
+  outline: none;
+}
+
+.directions {
+  margin: 30px 50px 25px 50px;
+}
+
+.directions label {
+  vertical-align: top;
+}
+
+.directions textarea {
+  margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  border: 1px black solid;
+  border-radius: 10px;
+}
+
+.directions textarea:focus {
+  outline: none;
+}
+
+.recipe-image {
+  margin: 25px 50px 20px 50px;
+}
+
+.upload-image-btn {
+  position: relative;
+  height: 40px;
+  border: 0;
+  padding: 10px;
+  width: 160px;
+  font-size: 14px;
+  background: rgb(242, 242, 242);
+  cursor: pointer;
+  outline: none;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,.2);
+  border-radius: 5px;
+  color: black;
+}
+
+.upload-image-btn i{
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.upload-image-btn:hover {
+  background: rgb(230, 230, 230);
+}
+
+.upload-image-btn input[type="file"] {
+  cursor: pointer;
+  position: relative;
+  bottom: 26px;
+  right: 104px;
+  width: 330px;
+  opacity: 0;
+}
+
+.upload-image-btn output {
+  position: relative;
+  bottom: 48px;
+  left: 148px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.submit-upload {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-upload input {
+  width: 250px;
+  border: 0;
+  margin-bottom: 45px;
+  padding: 10px 15px 10px 15px;
+  background: rgb(255, 89, 103);
+  box-shadow: 0px 2px 5px rgba(0,0,0,.2);
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.submit-upload input:hover {
+  background: rgb(251, 62, 78);
+}
+
+@media (max-width: 750px){
+  .upload-form {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: auto;
+  }
+}
+
+@media (max-width: 650px){
+  .recipe-name label {
+    font-size: 25px;
+  }
+  
+  .recipe-name input[type=text] {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 650px){
+  .recipe-name {
+    padding: 35px 60px 25px 60px;
+  }
+
+  .recipe-name label {
+    font-size: 24px;
+  }
+  
+  .recipe-name input[type=text] {
+    font-size: 24px;
+  }
+
+  .time-and-servings label {
+    font-size: 14px;
+  }
+  
+  .time-and-servings input[type=text] {
+    font-size: 14px;
+  }
+  
+  .ingredients label {
+    font-size: 14px;
+  }
+  
+  .ingredients textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  .directions label {
+    font-size: 14px;
+  }
+  
+  .directions textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .upload-image-btn {
+    height: 35px;
+    padding: 8px;
+    width: 150px;
+    font-size: 13px;
+  }
+  
+  .upload-image-btn i{
+    font-size: 12px;
+  }
+  
+  .upload-image-btn input[type="file"] {
+    cursor: pointer;
+    position: relative;
+    bottom: 23px;
+    right: 95px;
+    width: 238px;
+  }
+  
+  .upload-image-btn output {
+    position: relative;
+    bottom: 46px;
+    left: 140px;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .submit-upload input {
+    width: 200px;
+    padding: 8px 13px 8px 13px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 575px){
+  .recipe-name {
+    padding: 30px 60px 25px 60px;
+  }
+
+  .recipe-name label {
+    font-size: 20px;
+  }
+  
+  .recipe-name input[type=text] {
+    font-size: 20px;
+  }
+
+  .time-and-servings label {
+    font-size: 14px;
+  }
+  
+  .time-and-servings input[type=text] {
+    font-size: 14px;
+  }
+  
+  .ingredients label {
+    font-size: 14px;
+  }
+  
+  .ingredients textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  .directions label {
+    font-size: 14px;
+  }
+  
+  .directions textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .submit-upload input {
+    width: 200px;
+    padding: 8px 13px 8px 13px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 510px){
+  .upload-form-container {
+    margin: 20px 0px 50px 0px;
+  }
+
+  .recipe-name {
+    padding: 30px 40px 20px 40px;
+  }
+
+  .recipe-name label {
+    font-size: 16px;
+  }
+
+  .recipe-name input[type=text] {
+    font-size: 16px;
+  }
+
+  .time-and-servings label {
+    font-size: 12px;
+  }
+
+  .time-and-servings input[type=text] {
+    width: 70px;
+    font-size: 12px;
+  }
+
+  .ingredients {
+    margin: 30px 30px 30px 30px;
+  }
+
+  .ingredients label {
+    font-size: 12px;
+  }
+
+  .ingredients textarea {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .directions {
+    margin: 30px 30px 30px 30px;
+  }
+
+  .directions label {
+    font-size: 12px;
+  }
+
+  .directions textarea {
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+  .submit-upload input {
+    width: 200px;
+    padding: 8px 13px 8px 13px;
+    font-size: 13px;
+  }
+
+  .submit-upload input {
+    width: 170px;
+    padding: 6px 10px 6px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 410px){
+  .recipe-name {
+    padding: 25px 30px 20px 30px;
+  }
+
+  .recipe-name label {
+    font-size: 13px;
+  }
+
+  .recipe-name input[type=text] {
+    font-size: 13px;
+  }
+
+  .time-and-servings {
+    margin-top: 20px;
+  }
+
+  .time-and-servings label {
+    font-size: 11px;
+  }
+
+  .time-and-servings input[type=text] {
+    width: 50px;
+    font-size: 11px;
+  }
+
+  .ingredients {
+    margin: 25px 30px 20px 30px;
+  }
+
+  .ingredients label {
+    font-size: 11px;
+  }
+
+  .ingredients textarea {
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  .directions {
+    margin: 20px 30px 25px 30px;
+  }
+
+  .directions label {
+    font-size: 11px;
+  }
+
+  .directions textarea {
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  .submit-upload input {
+    margin-bottom: 30px;
+    width: 150px;
+    padding: 4px 8px 4px 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 340px){
+  .recipe-name {
+    padding: 25px 30px 20px 30px;
+  }
+
+  .recipe-name label {
+    font-size: 12px;
+  }
+
+  .recipe-name input[type=text] {
+    font-size: 12px;
+  }
+
+  .time-and-servings {
+    margin-top: 15px;
+  }
+
+  .time-and-servings label {
+    font-size: 10px;
+  }
+
+  .time-and-servings input[type=text] {
+    width: 35px;
+    font-size: 10px;
+  }
+
+  .ingredients {
+    margin: 20px 25px 15px 25px;
+  }
+
+  .ingredients label {
+    font-size: 10px;
+  }
+
+  .ingredients textarea {
+    margin-top: 5px;
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .directions {
+    margin: 15px 25px 20px 25px;
+  }
+
+  .directions label {
+    font-size: 10px;
+  }
+
+  .directions textarea {
+    margin-top: 5px;
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .submit-upload input {
+    margin-bottom: 30px;
+    width: 140px;
+    padding: 4px 8px 4px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 325px){
+  .recipe-name {
+    padding: 25px 20px 20px 20px;
+  }
+
+  .recipe-name label {
+    font-size: 11px;
+  }
+
+  .recipe-name input[type=text] {
+    font-size: 11px;
+  }
+
+  .time-and-servings label {
+    font-size: 10px;
+  }
+
+  .time-and-servings input[type=text] {
+    width: 30px;
+  }
+
+  .ingredients {
+    margin: 20px 20px 15px 20px;
+  }
+
+  .ingredients textarea {
+    margin-top: 0px;
+  }
+
+  .directions {
+    margin: 15px 20px 20px 20px;
+  }
+
+  .directions textarea {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 290px){
+  .recipe-name label {
+    font-size: 10px;
+  }
+
+  .recipe-name input[type=text] {
+    font-size: 10px;
+  }
+}
+
+/*Recipes on Profile*/
+.profile-recipes a {
+  cursor: pointer;
+}
+
+.profile-recipes ul {
+  list-style-type: none;
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  padding: 0px 30px 30px 30px;
+}
+
+.profile-recipes li {
+  text-align: left;
+  margin: 10px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 10px;
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.profile-recipes img {
+  border-radius: 10px 10px 0px 0px;
+  font-size: 13px;
+  width: 100%;
+  aspect-ratio: 4/ 3;
+  object-fit: cover;
+  font-display: block;
+}
+
+.profile-recipes h4 {
+  font-size: 13px;
+  padding: 10px 10px 5px 10px;
+  margin-bottom: 0px; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
+}
+
+.profile-recipes p {
+  font-size: 13px;
+  padding: 0px 10px 2px 10px;
+  margin-bottom: 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
+}
+
+.recipe-stars {
+  font-size: 13px;
+  padding: 0px 10px 10px 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
+}
+
+.recipe-stars i {
+  font-size: 10px;
+}
+
+@media (max-width: 705px){
+  .profile-recipes h4 {
+    font-size: 12px;
+  }
+  
+  .profile-recipes p {
+    font-size: 12px;
+  }
+  
+  .recipe-stars {
+    font-size: 12px;
+  }
+  
+  .recipe-stars i {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 635px){
+  .profile-recipes ul {
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  }
+}
+
+@media (max-width: 600px){
+  .profile-recipes h4 {
+    font-size: 11px;
+  }
+  
+  .profile-recipes p {
+    font-size: 11px;
+  }
+  
+  .recipe-stars {
+    font-size: 11px;
+  }
+  
+  .recipe-stars i {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 440px){
+  .profile-recipes h4 {
+    font-size: 10px;
+  }
+  
+  .profile-recipes p {
+    font-size: 10px;
+  }
+  
+  .recipe-stars {
+    font-size: 10px;
+  }
+  
+  .recipe-stars i {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 380px){
+  .profile-recipes ul {
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  }
+}

@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import current_user, login_required
-from .models import Profile
+from .models import Profile, Recipe
 from . import db
+from fileinput import filename
+from flask import *
 
 views = Blueprint('views', __name__)
 
@@ -18,7 +20,7 @@ def search():
 @login_required
 def profile():
     profile = Profile.query.filter_by(id=current_user.id).first()
-    return render_template('profile.html', user=current_user, profile=profile)
+    return render_template('profile.html', user=current_user, profile=profile, recipes=Recipe.query.filter_by(user_id=current_user.id).all())
 
 @views.route('/profile/update', methods=['GET','POST'])
 @login_required
@@ -37,5 +39,24 @@ def update_profile():
         profile.bio = bio
 
         db.session.commit()
-        return redirect(url_for('views.profile', user=user, profile=profile))
+        return redirect(url_for('views.profile', user=user, profile=profile, recipes=Recipe.query.filter_by(user_id=current_user.id).all()))
     return render_template('profile_settings.html', user=user, profile=profile)
+
+@views.route('/recipe/upload', methods=['GET','POST'])
+def recipe_upload():
+    if request.method == 'POST':
+        f = request.files['recipe_image']
+        f.save(f'app/static/{f.filename}')
+        user_id = current_user.id
+        title = request.form.get('title')
+        prep_time = request.form.get('prep_time')
+        servings = request.form.get('servings')
+        ingredients = request.form.get('ingredients')
+        directions = request.form.get('directions')
+        photo_path = f.filename
+        print(photo_path)
+        new_recipe = Recipe(user_id=user_id, title=title, time=prep_time, servings=servings, ingredients=ingredients, directions=directions, photo_path=photo_path)
+        db.session.add(new_recipe)
+        db.session.commit()
+        return render_template("profile.html", user=current_user, profile=profile, recipes=Recipe.query.filter_by(user_id=current_user.id).all())
+    return render_template('recipe_template.html')

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Mimi's Cookbook | Home{% endblock %}
+{% block title %}Mimi's Cookbook | Profile{% endblock %}
 {% block content %}
+<script src="{{url_for('static', filename='/javascript/javascript.js')}}"></script>
 <div class="navbar">
     <a href="/search" class="logo-text-link">
         <div class="logo-text">
@@ -14,8 +15,8 @@
     </form>
 
     <div>
-        <a class="nav-bars"><i class="fas fa-bars"></i></a>
-        <ul class="nav-links">
+        <button onclick="show_hide()" class="nav-bars"><i class="fas fa-bars"></i></button>
+        <ul id='nav-links' class="nav-links">
             <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
             <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
             <li><a href="">Cart</a></li>
@@ -34,16 +35,21 @@
             </div>
         </div>
         <div class="uploadbtn-container">
-            <button class="uploadbtn"><i class="fas fa-plus"></i>Upload Recipe</button>
+            <a href="{{ url_for('views.recipe_upload') }}">
+                <button class="uploadbtn"><i class="fas fa-plus"></i><span class="hide-upload-btn-content">Upload Recipe</span></button>
+            </a>
         </div>
     </div>
+    <a href="{{ url_for('views.update_profile') }}">
+        <button class="settingsbtn"><i class="fa fa-gear"></i><span class="hide-settings-btn-content">Profile Settings</span></button>
+    </a>
     <div class="profile-body">
         <div class="left-side">
             <div class="profile-side">
                 <p class="user-subscribers"><i class="fas fa-user-alt"></i>{{profile.subscribers}} subscribers</p>
                 <p class="user-email"><i class="fas fa-envelope"></i>{{user.email}}</p>
                 <div class="user-bio">
-                    <h3>Bio<h3>
+                    <h3>Bio</h3>
                     <p>{{profile.bio}}</p>
                 </div>
                 <div class="user-rating">
@@ -55,14 +61,11 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <span class="no-reviews">{{profile.num_reviews}} reviews</span>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <a href="{{ url_for('views.update_profile') }}">
-                        <button class="settingsbtn"><i class="fa fa-gear"></i>Profile Settings</button>
-                    </a>
+                    <div class="no-reviews">
+                        {{profile.num_reviews}} reviews
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,6 +74,103 @@
                 <ul>
                     <li><button class="tabs-btn active">Uploaded Recipes</button></li>
                     <li><button class="tabs-btn">Purchased Recipes</button></li>
+                </ul>
+            </div>
+            <div class="profile-recipes">
+                <ul>
+                    {% for recipe in recipes %}
+                    <a><li>
+                        <img src="{{url_for('static', filename=recipe.photo_path)}}" alt="">
+                        <h4>{{recipe.title}}</h4>
+                        <p>{{user.username}}</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    {% endfor %}
+                    <!-- <a><li>
+                        <img src="{{url_for('static', filename='chocolate-chip-cookies.jpg')}}"/>
+                        <h4>Chocolate Chip Cookies</h4>
+                        <p>@morganhepler</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    <a><li>
+                        <img src="{{url_for('static', filename='snickerdoodle-cookies.jpeg')}}"/>
+                        <h4>Snickerdoodle Cookies</h4>
+                        <p>@morganhepler</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    <a><li>
+                        <img src="{{url_for('static', filename='brownies.jpeg')}}"/>
+                        <h4>Brownies</h4>
+                        <p>@morganhepler</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    <a><li>
+                        <img src="{{url_for('static', filename='apple-pie.jpeg')}}"/>
+                        <h4>Apple Pie</h4>
+                        <p>@morganhepler</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    <a><li>
+                        <img src="{{url_for('static', filename='kettle-corn.jpeg')}}"/>
+                        <h4>Kettle Corn</h4>
+                        <p>@morganhepler</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a>
+                    <a><li>
+                        <img src="{{url_for('static', filename='strawberry-pretzel-salad.webp')}}"/>
+                        <h4>Strawberry Pretzel Salad</h4>
+                        <p>@morganhepler</p>
+                        <div class="recipe-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            (0 reviews)
+                        </div>
+                    </li></a> -->
                 </ul>
             </div>
         </div>
