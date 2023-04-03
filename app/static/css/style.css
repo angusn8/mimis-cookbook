@@ -2093,6 +2093,10 @@ button.settingsbtn1 i {
 }
 
 /*Recipes on Profile*/
+.profile-recipes {
+  margin-top: 20px;
+}
+
 .profile-recipes a {
   cursor: pointer;
 }
