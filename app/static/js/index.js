@@ -20,9 +20,9 @@ function show_hide() {
    }
 }
 
-let previousLength = 0;
-
 function bulletedInput(event) {
+  let previousLength = 0;
+
   const bullet = "\u2022";
   const newLength = event.target.value.length;
   const characterCode = event.target.value.substr(-1).charCodeAt(0);

@@ -60,3 +60,7 @@ def recipe_upload():
         db.session.commit()
         return render_template("profile.html", user=current_user, profile=profile, recipes=Recipe.query.filter_by(user_id=current_user.id).all())
     return render_template('recipe_template.html')
+
+@views.route('/recipe/view', methods=['GET'])
+def recipe_view():
+    return render_template('recipes.html')

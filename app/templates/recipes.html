@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Mimi's Cookbook | Recipes{% endblock %}
+{% block content %}
+<script src="{{url_for('static', filename='/javascript/javascript.js')}}"></script>
+<div class="navbar">
+    <a href="/search" class="logo-text-link">
+        <div class="logo-text">
+            Mimi's Cookbook
+        </div>
+    </a>
+
+    <form class="searchbar">
+        <input type="text" name="search" placeholder="Search..">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+    <div>
+        <button onclick="show_hide()" class="nav-bars"><i class="fas fa-bars"></i></button>
+        <ul id='nav-links' class="nav-links">
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
+            <li><a href="">Cart</a></li>
+        </ul>
+    </div>
+</div>
+<div class="img-heading">
+</div>
+{% endblock %}

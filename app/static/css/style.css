@@ -691,7 +691,7 @@ button.nav-bars {
   height: fit-content;
   background: white;
   box-shadow: 0px 3px 5px rgba(0,0,0,.2);
-  padding: 80px 30px 100px;
+  padding: 80px 30px 20px;
   margin: 0px 0px 25px 25px;
   z-index: 10;
 }
@@ -777,14 +777,12 @@ button.uploadbtn i{
   color:rgb(255, 89, 103);
 }
 
-button.settingsbtn {
+button.settingsbtn2 {
+  width: 0;
+  height: 0;
   position: absolute;
-  left: 55px;
-  top: 510px;
+  visibility: hidden;
   border: 0;
-  padding: 10px;
-  width: 235px;
-  border-bottom: 3px;
   background: rgb(242, 242, 242);
   cursor: pointer;
   outline: none;
@@ -795,17 +793,30 @@ button.settingsbtn {
   color: black;
 }
 
-button.settingsbtn:hover {
+button.settingsbtn1 {
+  border: 0;
+  padding: 10px;
+  width: 235px;
+  background: rgb(242, 242, 242);
+  cursor: pointer;
+  outline: none;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: black;
+}
+
+button.settingsbtn1:hover {
   background: rgb(230, 230, 230);
 }
 
-button.settingsbtn i{
-  margin-right: 7px;
+button.settingsbtn2:hover {
+  background: rgb(230, 230, 230);
 }
 
-.hide-settings-btn-content {
-  font-size: 16px;
-  visibility: visible;
+button.settingsbtn1 i {
+  margin-right: 7px;
 }
 
 .right-side {
@@ -877,11 +888,7 @@ button.settingsbtn i{
 
   .profile-side {
     height: fit-content;
-    padding: 75px 30px 100px;
-  }
-
-  button.settingsbtn {
-    top: 500px;
+    padding: 75px 30px 20px;
   }
 }
 
@@ -933,7 +940,7 @@ button.settingsbtn i{
   .profile-side {
     width: 275px;
     height: fit-content;
-    padding: 60px 30px 90px;
+    padding: 60px 30px 15px;
   }
 
   .profile-side p {
@@ -967,20 +974,11 @@ button.settingsbtn i{
     font-size: 13px;
   }
 
-  .settingsbtn-container {
-    top: 475px;
-  }
-
-  button.settingsbtn {
+  button.settingsbtn1 {
     width: 210px;
-    top: 445px;
   }
 
-  .hide-settings-btn-content {
-    font-size: 15px;
-  }
-
-  button.settingsbtn i {
+  button.settingsbtn1 i {
     font-size: 15px;
   }
 
@@ -1095,7 +1093,7 @@ button.settingsbtn i{
     bottom: 10px;
   }
   
-  button.settingsbtn {
+  button.settingsbtn2 {
     width: 40px;
     height: 40px;
     margin: 0px;
@@ -1103,15 +1101,15 @@ button.settingsbtn i{
     right: 40px;
     left: auto;
     top: 125px;
-  }
-  
-  button.settingsbtn i{
-    margin-right: 7px;
-    padding: 0px;
-    font-size: 20px;
+    visibility: visible;
   }
 
-  .hide-settings-btn-content {
+  button.settingsbtn1 {
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 0;
+    font-size: 1px;
     visibility: hidden;
   }
 }
@@ -1144,14 +1142,14 @@ button.settingsbtn i{
     font-size: 12px;
   }
   
-  button.settingsbtn {
+  button.settingsbtn2 {
     top: 145px;
     width: 36px;
     height: 36px;
     padding: 7.5px;
   }
   
-  button.settingsbtn i{
+  button.settingsbtn2 i{
     margin: 0px;
     padding: 0px;
     font-size: 18px;
@@ -1286,14 +1284,14 @@ button.settingsbtn i{
     left: 10px;
   }
   
-  button.settingsbtn {
+  button.settingsbtn2 {
     top: 105px;
     width: 20px;
     height: 20px;
     padding: 0px;
   }
   
-  button.settingsbtn i{
+  button.settingsbtn2 i {
     font-size: 13px;
     position: absolute;
     top: 4px;
@@ -1342,7 +1340,7 @@ button.settingsbtn i{
     padding: 5px 20px 5px 20px;
   }
 
-  button.settingsbtn {
+  button.settingsbtn2 {
     top: 120px;
     right: 20px;
   }
