@@ -32,15 +32,7 @@
                 <p>@{{user.username}}</p>
             </div>
         </div>
-        <div class="uploadbtn-container">
-            <a href="{{ url_for('views.recipe_upload') }}">
-                <button class="uploadbtn"><i class="fas fa-plus"></i><span class="hide-upload-btn-content">Upload Recipe</span></button>
-            </a>
-        </div>
     </div>
-    <a href="{{ url_for('views.update_profile') }}">
-        <button class="settingsbtn2"><i class="fa fa-gear"></i></button>
-    </a>
     <div class="profile-body">
         <div class="left-side">
             <div class="profile-side">
@@ -65,9 +57,6 @@
                         {{profile.num_reviews}} reviews
                     </div>
                 </div>
-                <a href="{{ url_for('views.update_profile') }}">
-                    <button class="settingsbtn1"><i class="fa fa-gear"></i>Profile Settings</span></button>
-                </a>
             </div>
         </div>
         <div class="right-side">
