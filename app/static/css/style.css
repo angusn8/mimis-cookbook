@@ -2245,6 +2245,8 @@ button.settingsbtn1 i {
 
 .homepage-recipes a {
   cursor: pointer;
+  color: black;
+  text-decoration: none;
 }
 
 .homepage-recipes ul {
@@ -2642,7 +2644,217 @@ button.settingsbtn1 i {
 }
 
 /*View Other User's Recipe*/
+.view-recipe-flex-box {
+  display: flex;
+}
+
 .view-other-recipe {
-  width: 700px;
-  margin: 10px 50px 0px 50px;
+  width: 65%;
+  margin: 30px 80px 40px 60px;
+  padding: 0px 20px 5px 20px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+}
+
+.buy-display-recipe-name {
+  padding: 20px;
+  margin: 5px 0px 30px 0px;
+  text-align: center;
+  letter-spacing: 1px;
+  border-bottom: .5px black solid;
+}
+
+.buy-display-recipe-name h3 {
+  font-variant: small-caps;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+.buy-display-recipe-user {
+  font-weight: 250;
+  font-size: 15px;
+  color: #777;
+  margin-right: 5px;
+}
+
+.buy-recipe-user-info i {
+  font-size: 11px;
+  color: #777;
+  vertical-align: 1px;
+}
+
+.buy-recipe-reviews {
+  font-weight: 250;
+  font-size: 13px;
+  color: #777;
+  vertical-align: 1px;
+}
+
+.ingredient-list-hide {
+  width: 50%;
+  margin: 0px 10px 0px 0px;
+}
+
+.direction-list-hide {
+  width: 100%;
+  margin: 0px 10px 0px 0px;
+}
+
+.ingredient-list-hide h4, .direction-list-hide h4 {
+  margin: 0px 0px 15px 0px;
+  font-variant: small-caps;
+  font-size: 17px;
+}
+
+.ingredient-list-hide p, .direction-list-hide p, .direction-list-hide li::marker {
+  margin: 0px 0px 15px 0px;
+  font-variant: small-caps;
+  font-size: 13px;
+}
+
+.direction-list-hide ol {
+  padding-left: 20px;
+  filter: blur(4px);
+}
+
+.ingredient-list-hide p {
+  filter: blur(4px);
+}
+
+.direction-list-hide p {
+  filter: blur(4px);
+}
+
+.buy-recipe-info {
+  text-align: center;
+}
+
+.buy-recipe-info h5 {
+  font-variant: small-caps;
+  font-size: 16px;
+}
+
+.buy-recipe-info p {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.buy-recipe {
+  margin: 100px 40px 0px 0px;
+}
+
+.buy-recipe-price h3 {
+  font-weight: 300px;
+  margin: 0px 0px 10px 0px;
+}
+
+.buy-recipe-name {
+  margin: 0px 0px 10px 0px;
+  font-size: 18px;
+}
+
+.buy-recipe-rating i {
+  font-size: 14px;
+  vertical-align: 1px;
+}
+
+.buy-recipe-user {
+  font-size: 16px;
+  vertical-align: 1px;
+  padding-left: 3px;
+}
+
+.buy-recipe-stars {
+  padding: 0;
+}
+
+button.add-to-cart-btn {
+  border: 0;
+  padding: 10px;
+  width: 250px;
+  border-bottom: 3px;
+  background:rgb(255, 89, 103);
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+  margin-right: 40px;
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: white;
+}
+
+button.add-to-cart-btn:hover {
+  background: rgb(251, 62, 78);
+}
+
+button.add-to-cart-btn i {
+  margin-right: 7px;
+} 
+
+@media (max-width: 1050px){
+  .view-other-recipe {
+    width: 65%;
+    margin: 30px 50px 40px 60px;
+    padding: 0px 20px 5px 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  }
+
+  .buy-recipe-price h3 {
+    font-weight: 300px;
+    font-size: 23px;
+    margin: 0px 0px 10px 0px;
+  }
+
+  .buy-recipe-name {
+    margin: 0px 0px 10px 0px;
+    font-size: 17px;
+  }
+
+  .buy-recipe-rating i {
+    font-size: 13px;
+    vertical-align: 1px;
+  }
+
+  .buy-recipe-user {
+    font-size: 15px;
+    vertical-align: 1px;
+    padding-left: 3px;
+  }
+
+  .buy-recipe-stars {
+    padding: 0;
+  }
+
+  button.add-to-cart-btn {
+    padding: 9px;
+    width: 225px;
+    font-size: 15px;
+  }
+
+  button.add-to-cart-btn:hover {
+    background: rgb(251, 62, 78);
+  }
+
+  button.add-to-cart-btn i {
+    margin-right: 7px;
+    font-size: 14px;
+  } 
+}
+
+
+@media (max-width: 950px){
+  .view-recipe-flex-box {
+    display: block;
+  }
+  
+  .view-other-recipe {
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .buy-recipe {
+    margin: 50px 80px 50px 80px;
+  }
 }

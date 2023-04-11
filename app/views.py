@@ -66,5 +66,5 @@ def recipe_view():
     return render_template('recipes.html')
 
 @views.route('/recipe/buy', methods=['GET'])
-def recipe_view():
+def recipe_buy():
     return render_template('others_recipes.html')
