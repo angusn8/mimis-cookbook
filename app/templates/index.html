@@ -1,28 +1,25 @@
-{% extends "base.html" %}
-{% block title %}Mimi's Cookbook | Home{% endblock %}
+{% extends "base.html" %} {% block title %}Mimi's Cookbook | Home{% endblock %}
 {% block content %}
 <script src="{{url_for('static', filename='/javascript/javascript.js')}}"></script>
 <div class="navbar">
-    <a href="/" class="logo-text-link">
-        <div class="logo-text">
-            Mimi's Cookbook
-        </div>
-    </a>
-    <form class="searchbar">
-        <input type="text" name="search" placeholder="Search..">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-    <div>
-        <button onclick="show_hide()" class="nav-bars"><i class="fas fa-bars"></i></button>
-        <ul id='nav-links' class="nav-links">
-            <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
-            <li><a href="">Cart</a></li>
-        </ul>
-    </div>
+  <a href="/" class="logo-text-link">
+    <div class="logo-text">Mimi's Cookbook</div>
+  </a>
+  <form class="searchbar">
+    <input type="text" name="search" placeholder="Search.." />
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <div>
+    <button onclick="show_hide()" class="nav-bars">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
+      <li><a href="">Cart</a></li>
+    </ul>
+  </div>
 </div>
-<div class="welcome-msg">
-    Welcome to Mimi's Cookbook!
-</div>
+<div class="welcome-msg">Welcome to Mimi's Cookbook!</div>
 <!--
 <div class="homepage-recipes">
     <ul>
@@ -44,7 +41,7 @@
     </ul>
 </div>
 -->
-<div class="homepage-recipes">
+<!-- <div class="homepage-recipes">
     <ul>
         <a href="{{ url_for('views.recipe_buy') }}"><li>
             <img src="../static/chocolate-chip-cookies.jpeg"/>
@@ -138,5 +135,5 @@
             </div>
         </li></a>
     </ul>
-</div>
+</div> -->
 {% endblock %}

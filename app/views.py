@@ -14,7 +14,7 @@ def home():
 @views.route('/search')
 @login_required
 def search():
-    return render_template('search.html', user=current_user)
+    return render_template('search.html', user=current_user, recipes=Recipe.query.all())
 
 @views.route('/profile')
 @login_required
@@ -55,7 +55,7 @@ def recipe_upload():
         directions = request.form.get('directions')
         photo_path = f.filename
         print(photo_path)
-        new_recipe = Recipe(user_id=user_id, title=title, time=prep_time, servings=servings, ingredients=ingredients, directions=directions, photo_path=photo_path)
+        new_recipe = Recipe(user_id=user_id, username=current_user.username, title=title, time=prep_time, servings=servings, ingredients=ingredients, directions=directions, photo_path=photo_path)
         db.session.add(new_recipe)
         db.session.commit()
         return render_template("profile.html", user=current_user, profile=profile, recipes=Recipe.query.filter_by(user_id=current_user.id).all())
@@ -63,7 +63,7 @@ def recipe_upload():
 
 @views.route('/recipe/view', methods=['GET'])
 def recipe_view():
-    return render_template('recipes.html')
+    return render_template('recipes.html', user=current_user, recipe=Recipe.query.filter_by(user_id=current_user.id).first())
 
 @views.route('/recipe/buy', methods=['GET'])
 def recipe_buy():

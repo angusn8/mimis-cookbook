@@ -34,6 +34,7 @@ class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     user_id = db.Column(db.Integer)
+    username = db.Column(db.String(255))
     title = db.Column(db.String(255))
     time = db.Column(db.String(255))
     servings = db.Column(db.String(255))
