@@ -48,7 +48,7 @@
             <p>8 oz cool whip, thawed in the fridge</p>
             <p>1 lb fresh strawberries, hulled and sliced</p> -->
       <h4>Ingredients</h4>
-      {{recipe.ingredients}}
+      <p id="recipe-ingredients"><span>{{recipe.ingredients}}</span></p>
     </div>
     <div class="right-half">
       <div class="recipe-img">
@@ -64,14 +64,15 @@
           <p>{{recipe.servings}}</p>
         </div>
       </div>
+      <div class="space"></div>
     </div>
   </div>
   <div class="recipe-part">
     <div class="direction-list">
       <h4>Directions</h4>
-      <ol>
-        {{recipe.directions}}
-      </ol>
+      <p id="recipe-directions">
+        <span>{{recipe.directions}}</span>
+      </p>
     </div>
   </div>
 </div>

@@ -1,4 +1,6 @@
 window.onresize = resize;
+window.onload = pageLoad;
+
 function resize()
 {
     var resize = document.getElementById("nav-links");
@@ -47,6 +49,25 @@ fileInput.addEventListener('change', function(event) {
   }
 });
 
+function pageLoad() {
+  var ingredients = document.getElementById('recipe-ingredients').innerHTML;
+  var ingredientArr = ingredients.split("\u2022");
+  document.getElementById('recipe-ingredients').innerHTML = "";
+  var printIngredients = document.getElementById('recipe-ingredients');
+
+  for (var i = 0; i < ingredientArr.length; i++) {
+    printIngredients.innerHTML += ingredientArr[i] + "<br><br>";
+  }
+
+  var directions = document.getElementById('recipe-directions').innerHTML;
+  var directionArr = directions.split("\u2022");
+  document.getElementById('recipe-directions').innerHTML = "";
+  var printDirections = document.getElementById('recipe-directions');
+
+  for (var i = 1; i < directionArr.length; i++) {
+    printDirections.innerHTML += i + ". " + directionArr[i] + "<br><br>";
+  }
+}
 
 
 

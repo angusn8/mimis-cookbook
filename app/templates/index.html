@@ -20,6 +20,28 @@
   </div>
 </div>
 <div class="welcome-msg">Welcome to Mimi's Cookbook!</div>
+
+<div class="homepage-recipes">
+    <ul>
+      {% for recipe in recipes %}
+      <a href="{{ url_for('views.recipe_view', recipe_id=recipe.id) }}">
+        <li>
+          <img src="{{url_for('static', filename=recipe.photo_path)}}" alt="" />
+          <h4>{{recipe.title}}</h4>
+          <p>@{{recipe.username}}</p>
+          <div class="recipe-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            (0 reviews)
+          </div>
+        </li></a
+      >
+      {% endfor %}
+    </ul>
+</div>
 <!--
 <div class="homepage-recipes">
     <ul>

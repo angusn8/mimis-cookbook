@@ -58,12 +58,13 @@ def recipe_upload():
         new_recipe = Recipe(user_id=user_id, username=current_user.username, title=title, time=prep_time, servings=servings, ingredients=ingredients, directions=directions, photo_path=photo_path)
         db.session.add(new_recipe)
         db.session.commit()
+        profile = Profile.query.filter_by(id=current_user.id).first()
         return render_template("profile.html", user=current_user, profile=profile, recipes=Recipe.query.filter_by(user_id=current_user.id).all())
     return render_template('recipe_template.html')
 
-@views.route('/recipe/view', methods=['GET'])
-def recipe_view():
-    return render_template('recipes.html', user=current_user, recipe=Recipe.query.filter_by(user_id=current_user.id).first())
+@views.route('/recipe/view<int:recipe_id>', methods=['GET'])
+def recipe_view(recipe_id):
+    return render_template('recipes.html', user=current_user, recipe=Recipe.query.filter_by(id=recipe_id, user_id=current_user.id).first())
 
 @views.route('/recipe/buy', methods=['GET'])
 def recipe_buy():
