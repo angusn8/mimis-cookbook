@@ -64,7 +64,7 @@ def recipe_upload():
 
 @views.route('/recipe/view<int:recipe_id>', methods=['GET'])
 def recipe_view(recipe_id):
-    return render_template('recipes.html', user=current_user, recipe=Recipe.query.filter_by(id=recipe_id, user_id=current_user.id).first())
+    return render_template('recipes.html', user=current_user, recipe=Recipe.query.filter_by(id=recipe_id).first())
 
 @views.route('/recipe/buy', methods=['GET'])
 def recipe_buy():
