@@ -14,7 +14,10 @@ def home():
 @views.route('/search')
 @login_required
 def search():
-    return render_template('search.html', user=current_user, recipes=Recipe.query.all())
+    search_query = request.form.get('query')
+    results = Recipe.query.filter(Recipe.title.ilike('%{}%'.format(search_query))).all()
+
+    return render_template('search.html', user=current_user, recipes=Recipe.query.all(), query=search_query, results=results)
 
 @views.route('/profile')
 @login_required

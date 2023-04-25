@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% block title %}Mimi's Cookbook | Home{% endblock %}
 {% block content %}
-<script src="{{url_for('static', filename='/javascript/javascript.js')}}"></script>
+<script src="{{url_for('static', filename='/js/index.js')}}"></script>
 <div class="navbar">
   <a href="/search" class="logo-text-link">
     <div class="logo-text">Mimi's Cookbook</div>
   </a>
-  <form class="searchbar">
-    <input type="text" name="search" placeholder="Search.." />
+  <form class="searchbar" id="search-form">
+    <input type="text" name="query" id="query" placeholder="Search.." />
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <div>
@@ -27,7 +27,23 @@
 
 <div class="homepage-recipes">
   <ul>
-    {% for recipe in recipes %}
+    {% if results %} {% for result in results %}
+    <a href="{{ url_for('views.recipe_view', recipe_id=result.id) }}">
+      <li>
+        <img src="{{url_for('static', filename=result.photo_path)}}" alt="" />
+        <h4>{{result.title}}</h4>
+        <p>@{{result.username}}</p>
+        <div class="recipe-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          (0 reviews)
+        </div>
+      </li></a
+    >
+    {% endfor %} {% else %} {% for recipe in recipes %}
     <a href="{{ url_for('views.recipe_view', recipe_id=recipe.id) }}">
       <li>
         <img src="{{url_for('static', filename=recipe.photo_path)}}" alt="" />
@@ -43,103 +59,8 @@
         </div>
       </li></a
     >
-    {% endfor %}
+    {% endfor %} {% endif %}
   </ul>
 </div>
 
-<!-- <div class="homepage-recipes">
-    <ul>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/chocolate-chip-cookies.jpeg"/>
-            <h4>Chocolate Chip Cookies</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/brownies.jpeg"/>
-            <h4>Brownies</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/apple-pie.jpeg"/>
-            <h4>Apple Pie</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/kettle-corn.jpeg"/>
-            <h4>Kettle Corn</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/strawberry-pretzel-salad.webp"/>
-            <h4>Strawberry Pretzel Salad</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/pizza.jpeg"/>
-            <h4>Pizza</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-        <a href="{{ url_for('views.recipe_buy') }}"><li>
-            <img src="../static/snickerdoodle-cookie.jpeg"/>
-            <h4>Snickerdoodle Cookies</h4>
-            <p>@morganhepler</p>
-            <div class="recipe-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                (0 reviews)
-            </div>
-        </li></a>
-    </ul>
-</div> -->
 {% endblock %}

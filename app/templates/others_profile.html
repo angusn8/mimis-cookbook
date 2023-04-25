@@ -1,85 +1,89 @@
-{% extends "base.html" %}
-{% block title %}Mimi's Cookbook | Profile{% endblock %}
-{% block content %}
-<script src="{{url_for('static', filename='/javascript/javascript.js')}}"></script>
+{% extends "base.html" %} {% block title %}Mimi's Cookbook | Profile{% endblock
+%} {% block content %}
+<script src="{{url_for('static', filename='/js/index.js')}}"></script>
 <div class="navbar">
-    <a href="/search" class="logo-text-link">
-        <div class="logo-text">
-            Mimi's Cookbook
-        </div>
-    </a>
-    <form class="searchbar">
-        <input type="text" name="search" placeholder="Search..">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-    <div>
-        <button onclick="show_hide()" class="nav-bars"><i class="fas fa-bars"></i></button>
-        <ul id='nav-links' class="nav-links">
-            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-            <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
-            <li><a href="">Cart</a></li>
-        </ul>
-    </div>
+  <a href="/search" class="logo-text-link">
+    <div class="logo-text">Mimi's Cookbook</div>
+  </a>
+  <form class="searchbar">
+    <input type="text" name="search" placeholder="Search.." />
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <div>
+    <button onclick="show_hide()" class="nav-bars">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+      <li><a href="{{ url_for('views.profile') }}">Profile</a></li>
+      <li><a href="">Cart</a></li>
+    </ul>
+  </div>
 </div>
 <div class="profile-container">
-    <div class="profile-header">
-        <div class="profile-img">
-            <img src="{{ user.avatar(280) }}" width="200" alt="">
-        </div>
-        <div class="profile-name-info">
-            <h3 class="user-name">{{user.full_name}}</h3>
-            <div class="user-username">
-                <p>@{{user.username}}</p>
-            </div>
-        </div>
+  <div class="profile-header">
+    <div class="profile-img">
+      <img src="{{ user.avatar(280) }}" width="200" alt="" />
     </div>
-    <div class="profile-body">
-        <div class="left-side">
-            <div class="profile-side">
-                <p class="user-subscribers"><i class="fas fa-user-alt"></i>{{profile.subscribers}} subscribers</p>
-                <p class="user-email"><i class="fas fa-envelope"></i>{{user.email}}</p>
-                <div class="user-bio">
-                    <h3>Bio</h3>
-                    <p>{{profile.bio}}</p>
-                </div>
-                <div class="user-rating">
-                    <h3 class="rating">{{profile.rating}}</h3>
-                    <div class="rate">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="no-reviews">
-                        {{profile.num_reviews}} reviews
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="right-side">
-            <div class="profile-recipes">
-                <ul>
-                    {% for recipe in recipes %}
-                    <a><li>
-                        <img src="{{url_for('static', filename=recipe.photo_path)}}" alt="">
-                        <h4>{{recipe.title}}</h4>
-                        <p>@{{user.username}}</p>
-                        <div class="recipe-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            (0 reviews)
-                        </div>
-                    </li></a>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+    <div class="profile-name-info">
+      <h3 class="user-name">{{user.full_name}}</h3>
+      <div class="user-username">
+        <p>@{{user.username}}</p>
+      </div>
     </div>
+  </div>
+  <div class="profile-body">
+    <div class="left-side">
+      <div class="profile-side">
+        <p class="user-subscribers">
+          <i class="fas fa-user-alt"></i>{{profile.subscribers}} subscribers
+        </p>
+        <p class="user-email"><i class="fas fa-envelope"></i>{{user.email}}</p>
+        <div class="user-bio">
+          <h3>Bio</h3>
+          <p>{{profile.bio}}</p>
+        </div>
+        <div class="user-rating">
+          <h3 class="rating">{{profile.rating}}</h3>
+          <div class="rate">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="no-reviews">{{profile.num_reviews}} reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="profile-recipes">
+        <ul>
+          {% for recipe in recipes %}
+          <a
+            ><li>
+              <img
+                src="{{url_for('static', filename=recipe.photo_path)}}"
+                alt=""
+              />
+              <h4>{{recipe.title}}</h4>
+              <p>@{{user.username}}</p>
+              <div class="recipe-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                (0 reviews)
+              </div>
+            </li></a
+          >
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
