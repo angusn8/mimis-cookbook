@@ -11,13 +11,15 @@ views = Blueprint('views', __name__)
 def home():
     return render_template('index.html')
 
-@views.route('/search')
+@views.route('/search', methods=['GET', 'POST'])
 @login_required
 def search():
-    search_query = request.form.get('query')
-    results = Recipe.query.filter(Recipe.title.ilike('%{}%'.format(search_query))).all()
-
-    return render_template('search.html', user=current_user, recipes=Recipe.query.all(), query=search_query, results=results)
+    if request.method == 'POST':
+        search_query = request.form.get('query')
+        results = Recipe.query.filter(Recipe.title.ilike('%{}%'.format(search_query))).all()
+        return render_template('search.html', user=current_user, recipes=Recipe.query.all(), query=search_query, results=results)
+    else:
+        return render_template('search.html', user=current_user, recipes=Recipe.query.all())
 
 @views.route('/profile')
 @login_required
