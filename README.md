@@ -4,5 +4,6 @@ Welcome to the ultimate recipe sharing app! To run this app locally, take the fo
 
 1. Clone the repository
 2. CD into the cloned repo
-3. ```pip install requirements.txt```
-4. ```python main.py```
+3. ```pip install -r requirements.txt``` for UNIX based systems
+4. ```python -m pip install -r requirements.txt``` on Windows
+5. ```python main.py```
